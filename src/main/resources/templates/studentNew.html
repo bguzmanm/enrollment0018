@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Matriculón</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link th:href="@{/css/estilo.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h2>Nuevo Estudiante</h2>
+    <div th:replace="nav :: menu"></div>
+  </header>
+  <main>
+      <form th:action="@{/student/save}" method="post" th:object="${student}" class="form">
+        <input type="hidden" id="studentId" name="studentId" value="0">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Constanza Vivar">
+        </div>
+        <div class="mb-3">
+          <label for="dni" class="form-label">Rut:</label>
+          <input type="text" class="form-control" id="dni" name="dni" placeholder="12345678-9">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="lacony@gmail.com">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Telefono:</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="9 2343 4234">
+        </div>
+        <div class="mb-6">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="reset" class="btn btn-primary">Limpiar</button>
+        </div>
+      </form>
+
+  </main>
+</div>
+
+</body>
+</html>
